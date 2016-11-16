@@ -9,7 +9,7 @@
 import Foundation
 
 extension FileManager {
-    public static func documentsURL() -> URL? {
+    public static func documentURL() -> URL? {
         return self.documentURL(childPath: nil)
     }
     
@@ -18,6 +18,7 @@ extension FileManager {
             if let path = childPath {
                 return documentURL.appendingPathComponent(path)
             }
+            return documentURL
         }
         return nil
     }
