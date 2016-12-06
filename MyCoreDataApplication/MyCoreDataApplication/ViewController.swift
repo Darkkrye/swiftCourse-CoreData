@@ -13,11 +13,11 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        print(FileManager.documentURL()!)
+        /*print(FileManager.documentURL()!)
         
         if let context = DataManager.shared.objectContext {
             print(context)
-        }
+        }*/
     }
 
     override func didReceiveMemoryWarning() {

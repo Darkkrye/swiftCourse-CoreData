@@ -17,6 +17,30 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        /*if let context = DataManager.shared.objectContext {
+            if let u = NSEntityDescription.insertNewObject(forEntityName: "User", into: context) as? User {
+                u.login = "Test"
+                u.password = "Test"
+            }
+            
+            try? context.save()
+        }*/
+        
+        let fr: NSFetchRequest = User.fetchRequest()
+        // fr.predicate = NSPredicate(format: "password==%@", "Test")
+        if let context = DataManager.shared.objectContext {
+            if let rows = try? context.fetch(fr) {
+                for u in rows {
+                    print("\(u.login) - \(u.password)")
+                    // context.delete(u)
+                }
+                
+                try? context.save()
+            }
+        }
+        
+        
         return true
     }
 
